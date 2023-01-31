@@ -1,7 +1,11 @@
+from inventory_report.importer.importer import Importer
 import json
 
 
-class CsvImporter:
+class JsonImporter(Importer):
     def import_data(path):
-        with open(path) as file:
-            return list(json.loads(file.read()))
+        try:
+            with open(path, encoding="utf-8") as file:
+                return json.loads(file.read())
+        except json.JSONDecodeError:
+            raise ValueError("Arquivo inválido")
