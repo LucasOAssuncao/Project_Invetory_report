@@ -16,7 +16,6 @@ class SimpleReport:
         company_with_most_products = Counter(
             product["nome_da_empresa"] for product in products
             ).most_common()[0][0]
-        print(company_with_most_products)
         return (
             f"Data de fabricação mais antiga: {oldest_creation_date}\n"
             f"Data de validade mais próxima: {closest_expiration_date}\n"
